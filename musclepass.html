@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>MessMate - MusclePass</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* GLOBAL */
+
+body{
+margin:0;
+font-family:Arial;
+background:#0b0f0c;
+color:white;
+display:flex;
+height:100vh;
+overflow:hidden;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:230px;
+background:#0a0d0b;
+height:100vh;
+padding:20px;
+position:fixed;
+left:0;
+top:0;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:20px;
+font-weight:bold;
+margin-bottom:30px;
+}
+
+.logo-icon{
+width:35px;
+height:35px;
+background:#22c55e;
+border-radius:8px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+color:black;
+}
+
+.sidebar a{
+display:block;
+padding:12px;
+color:#aaa;
+text-decoration:none;
+margin-bottom:6px;
+border-radius:6px;
+}
+
+.sidebar a i{
+margin-right:10px;
+}
+
+.sidebar a:hover{
+background:#13301f;
+color:#4ade80;
+}
+
+.active{
+background:#13301f;
+color:#4ade80;
+}
+
+/* PROFILE */
+
+.profile{
+position:absolute;
+bottom:20px;
+left:20px;
+right:20px;
+display:flex;
+align-items:center;
+gap:12px;
+padding:12px;
+background:#111;
+border-radius:10px;
+border:1px solid #222;
+}
+
+.profile-avatar{
+width:36px;
+height:36px;
+background:#22c55e;
+border-radius:8px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+color:#053d1f;
+}
+
+/* MAIN */
+
+.main{
+margin-left:230px;
+padding:40px;
+overflow-y:auto;
+height:100vh;
+width:100%;
+}
+
+/* HEADER */
+
+.title{
+font-size:34px;
+margin-bottom:5px;
+}
+
+.subtitle{
+color:#9ca3af;
+margin-bottom:30px;
+}
+
+/* PLAN CARD */
+
+.plan-card{
+background:#111;
+border:1px solid #1f2937;
+border-radius:14px;
+padding:30px;
+margin-bottom:30px;
+position:relative;
+}
+
+.pro{
+position:absolute;
+right:25px;
+top:25px;
+background:#13301f;
+color:#4ade80;
+padding:6px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+}
+
+.price{
+font-size:46px;
+color:#34d399;
+font-weight:bold;
+margin:15px 0;
+}
+
+.price span{
+font-size:18px;
+color:#9ca3af;
+}
+
+.features{
+list-style:none;
+padding:0;
+margin:0 0 20px 0;
+}
+
+.features li{
+margin:12px 0;
+}
+
+.features i{
+color:#34d399;
+margin-right:10px;
+}
+
+.manage-btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+background:#1f2937;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+.manage-btn:hover{
+background:#374151;
+}
+
+/* CALCULATOR CARD */
+
+.calc-card{
+background:#111;
+border:1px solid #1f2937;
+border-radius:14px;
+padding:30px;
+}
+
+.calc-header{
+display:flex;
+justify-content:space-between;
+margin-bottom:20px;
+}
+
+.protein{
+color:#34d399;
+font-weight:bold;
+}
+
+/* SLIDER */
+
+.slider{
+width:100%;
+}
+
+.range-label{
+display:flex;
+justify-content:space-between;
+font-size:13px;
+color:#9ca3af;
+margin-bottom:25px;
+}
+
+.total{
+margin-top:25px;
+font-size:20px;
+}
+
+.total span{
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<div class="logo">
+<div class="logo-icon">M</div>
+MessMate
+</div>
+
+<a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a>
+<a href="menu.html"><i class="fa-solid fa-utensils"></i> Menu</a>
+<a href="rate.html"><i class="fa-solid fa-star"></i> Rate Meal</a>
+<a href="ai-voting.html"><i class="fa-solid fa-robot"></i> AI Voting</a>
+<a href="rewards.html"><i class="fa-solid fa-gift"></i> Rewards</a>
+<a href="inspection.html"><i class="fa-solid fa-clipboard-check"></i> Inspection</a>
+<a class="active" href="musclepass.html"><i class="fa-solid fa-dumbbell"></i> MusclePass</a>
+<a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a>
+
+<div class="profile">
+<div class="profile-avatar">JD</div>
+<div>
+<div>John Doe</div>
+<small style="color:#9ca3af">Student</small>
+</div>
+</div>
+
+</div>
+
+
+<!-- MAIN -->
+
+<div class="main">
+
+<h1 class="title">⚡ MusclePass</h1>
+<p class="subtitle">Personalized protein tracking & extra servings for ₹69/month.</p>
+
+
+<!-- PLAN CARD -->
+
+<div class="plan-card">
+
+<div class="pro">PRO</div>
+
+<h2>Active Plan</h2>
+
+<div class="price">₹69 <span>/mo</span></div>
+
+<ul class="features">
+<li><i class="fa-solid fa-bolt"></i> Extra 50g Chicken Daily</li>
+<li><i class="fa-solid fa-bolt"></i> Extra 50g Paneer Daily</li>
+<li><i class="fa-solid fa-bolt"></i> Priority Serving Line</li>
+<li><i class="fa-solid fa-bolt"></i> Advanced Macro Tracker</li>
+</ul>
+
+<button class="manage-btn">Manage Subscription</button>
+
+</div>
+
+
+<!-- CALCULATOR -->
+
+<div class="calc-card">
+
+<div class="calc-header">
+<h2>Serving Calculator</h2>
+<p>Plan your macros</p>
+</div>
+
+<p>Chicken Breast</p>
+
+<input type="range" min="0" max="300" value="100"
+class="slider" id="chicken">
+
+<div class="range-label">
+<span>0g</span>
+<span>Current: <span id="cVal">100</span>g</span>
+<span class="protein"><span id="cProtein">31</span>g Protein</span>
+</div>
+
+
+<p>Paneer</p>
+
+<input type="range" min="0" max="300" value="100"
+class="slider" id="paneer">
+
+<div class="range-label">
+<span>0g</span>
+<span>Current: <span id="pVal">100</span>g</span>
+<span class="protein"><span id="pProtein">18</span>g Protein</span>
+</div>
+
+
+<div class="total">
+Total Selected Protein: <span id="total">49</span>g
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+let chicken=document.getElementById("chicken")
+let paneer=document.getElementById("paneer")
+
+function update(){
+
+let c=chicken.value
+let p=paneer.value
+
+let cProtein=(c*0.31).toFixed(0)
+let pProtein=(p*0.18).toFixed(0)
+
+document.getElementById("cVal").innerText=c
+document.getElementById("pVal").innerText=p
+
+document.getElementById("cProtein").innerText=cProtein
+document.getElementById("pProtein").innerText=pProtein
+
+document.getElementById("total").innerText=parseInt(cProtein)+parseInt(pProtein)
+
+}
+
+chicken.oninput=update
+paneer.oninput=update
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>MessMate Dashboard</title>
+
+<!-- ICON LIBRARY -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* GLOBAL */
+
+body{
+margin:0;
+font-family:Arial;
+background:#0b0f0c;
+color:white;
+display:flex;
+height:100vh;
+overflow:hidden;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:230px;
+background:#0a0d0b;
+height:100vh;
+padding:20px;
+position:fixed;
+left:0;
+top:0;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:20px;
+font-weight:bold;
+margin-bottom:30px;
+}
+
+.logo-icon{
+width:35px;
+height:35px;
+background:#22c55e;
+border-radius:8px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+color:black;
+}
+
+.sidebar a{
+display:block;
+padding:12px;
+color:#aaa;
+text-decoration:none;
+margin-bottom:6px;
+border-radius:6px;
+}
+
+.sidebar a i{
+margin-right:10px;
+width:18px;
+}
+
+.sidebar a:hover{
+background:#13301f;
+color:#4ade80;
+}
+
+.active{
+background:#13301f;
+color:#4ade80;
+}
+
+/* PROFILE */
+
+.profile{
+position:absolute;
+bottom:20px;
+left:20px;
+right:20px;
+
+display:flex;
+align-items:center;
+gap:12px;
+
+padding:12px;
+background:#111;
+border-radius:10px;
+border:1px solid #222;
+}
+
+/* green square avatar */
+
+.profile-avatar{
+width:36px;
+height:36px;
+background:#22c55e;
+border-radius:8px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-weight:bold;
+color:#053d1f;
+}
+
+/* name section */
+
+.profile-name{
+font-weight:600;
+}
+
+.profile-role{
+font-size:13px;
+color:#9ca3af;
+}
+
+/* MAIN CONTENT */
+
+.main{
+margin-left:230px;
+padding:40px;
+overflow-y:auto;
+height:100vh;
+width:100%;
+}
+
+/* HEADER */
+
+.header h1{
+margin:0;
+}
+
+.subtitle{
+color:#999;
+margin-bottom:30px;
+}
+
+/* STAT CARDS */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin-bottom:40px;
+}
+
+.card{
+background:#111;
+padding:25px;
+border-radius:10px;
+border:1px solid #222;
+}
+
+.card p{
+color:#aaa;
+font-size:14px;
+margin-bottom:5px;
+}
+
+.card h2{
+font-size:28px;
+margin:0;
+}
+
+.card-top{
+display:flex;
+align-items:center;
+gap:10px;
+color:#9ca3af;
+}
+
+.stat-icon{
+font-size:20px;
+}
+
+/* icon colors */
+
+.green{
+color:#4ade80;
+}
+
+.blue{
+color:#60a5fa;
+}
+
+.purple{
+color:#c084fc;
+}
+
+/* QUICK ACTIONS */
+
+.quick-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.action{
+background:#111;
+padding:20px;
+border-radius:10px;
+border:1px solid #222;
+transition:0.2s;
+}
+
+.action:hover{
+border-color:#4ade80;
+}
+
+.action h3{
+margin-top:0;
+font-size:16px;
+}
+
+.action i{
+margin-right:8px;
+color:#4ade80;
+}
+
+.action p{
+color:#aaa;
+font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<div class="logo">
+<div class="logo-icon">M</div>
+MessMate
+</div>
+
+<a class="active" href="dashboard.html">
+<i class="fa-solid fa-house"></i> Dashboard
+</a>
+
+<a href="menu.html">
+<i class="fa-solid fa-utensils"></i> Menu
+</a>
+
+<a href="rate.html">
+<i class="fa-solid fa-star"></i> Rate Meal
+</a>
+
+<a href="ai-voting.html">
+<i class="fa-solid fa-robot"></i> AI Voting
+</a>
+
+<a href="rewards.html">
+<i class="fa-solid fa-gift"></i> Rewards
+</a>
+
+<a href="inspection.html">
+<i class="fa-solid fa-clipboard-check"></i> Inspection
+</a>
+
+<a href="musclepass.html">
+<i class="fa-solid fa-dumbbell"></i> MusclePass
+</a>
+
+<a href="about.html">
+<i class="fa-solid fa-circle-info"></i> About
+</a>
+
+<div class="profile">
+
+<div class="profile-avatar">
+JD
+</div>
+
+<div class="profile-info">
+<div class="profile-name">John Doe</div>
+<div class="profile-role">Student</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- MAIN CONTENT -->
+
+<div class="main">
+
+<div class="header">
+<h1>Welcome back, <span id="username"></span></h1>
+<p class="subtitle">Know your meal before you eat it.</p>
+</div>
+
+
+<!-- STATS -->
+
+<div class="cards">
+
+<div class="card">
+<div class="card-top">
+<i class="fa-solid fa-gift stat-icon green"></i>
+<p>Points Balance</p>
+</div>
+<h2 id="points"></h2>
+</div>
+
+<div class="card">
+<div class="card-top">
+<i class="fa-regular fa-star stat-icon blue"></i>
+<p>Meals Rated</p>
+</div>
+<h2 id="mealsRated"></h2>
+</div>
+
+<div class="card">
+<div class="card-top">
+<i class="fa-solid fa-square-check stat-icon purple"></i>
+<p>Active Polls</p>
+</div>
+<h2>2</h2>
+</div>
+
+</div>
+
+<!-- QUICK ACTIONS -->
+
+<h2>Quick Actions</h2>
+
+<div class="quick-grid">
+
+<div class="action">
+<h3><i class="fa-solid fa-star"></i> Rate Today's Meal</h3>
+<p>Submit feedback to improve the menu.</p>
+</div>
+
+<div class="action">
+<h3><i class="fa-solid fa-robot"></i> AI Dish Replacement</h3>
+<p>Vote on AI suggested alternatives.</p>
+</div>
+
+<div class="action">
+<h3><i class="fa-solid fa-gift"></i> Rewards Dashboard</h3>
+<p>Redeem participation points.</p>
+</div>
+
+<div class="action">
+<h3><i class="fa-solid fa-clipboard-check"></i> Mess Inspection</h3>
+<p>Kitchen hygiene verification.</p>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- JSON DATA SCRIPT -->
+
+<script>
+
+fetch("data.json")
+.then(res => res.json())
+.then(data => {
+
+document.getElementById("username").innerText = data.user.name
+document.getElementById("points").innerText = data.user.points
+document.getElementById("mealsRated").innerText = data.user.mealsRated
+document.getElementById("polls").innerText = data.user.activePolls
+
+})
+
+</script>
+
+
+</body>
+</html>

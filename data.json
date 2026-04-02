@@ -1,0 +1,74 @@
+{
+  "user": {
+    "name": "John Doe",
+    "role": "Student",
+    "points": 145,
+    "mealsRated": 48
+  },
+
+  "menu": {
+    "breakfast": {
+      "time": "7:30 AM - 9:30 AM",
+      "items": ["Aloo Paratha", "Curd", "Boiled Egg / Banana", "Tea / Coffee"],
+      "calories": 450,
+      "protein": "14g"
+    },
+    "lunch": {
+      "time": "12:30 PM - 2:30 PM",
+      "items": ["Dal Tadka", "Paneer Butter Masala", "Jeera Rice", "Roti", "Salad"],
+      "calories": 850,
+      "protein": "28g"
+    },
+    "snacks": {
+      "time": "5:00 PM - 6:00 PM",
+      "items": ["Samosa", "Green Chutney", "Tea / Coffee"],
+      "calories": 320,
+      "protein": "6g"
+    },
+    "dinner": {
+      "time": "7:30 PM - 9:30 PM",
+      "items": ["Mix Veg", "Black Chana Dal", "Roti", "Gulab Jamun"],
+      "calories": 780,
+      "protein": "22g"
+    }
+  },
+
+  "ratings": {
+    "Dal Tadka": 1.2,
+    "Paneer Butter Masala": 4.2,
+    "Jeera Rice": 3.9,
+    "Aloo Paratha": 4.5
+  },
+
+  "voting": {
+    "flaggedDish": {"name": "Dal Tadka", "image": "https://files.catbox.moe/nzx3qd.jpeg"},
+    "alternatives": [
+      {"name": "Rajma Masala", "votes": 5, "image": "https://files.catbox.moe/ccjq8b.jpeg"},
+      {"name": "Dal Makhani", "votes": 3, "image": "https://files.catbox.moe/skj5b2.jpeg"},
+      {"name": "Chole", "votes": 2, "image": "https://files.catbox.moe/b37cpy.jpeg"}
+    ]
+  },
+
+  "offers": [
+    {"brand": "Burger Spot", "offer": "20% OFF Entire Menu", "pointsRequired": 50, "image": "https://files.catbox.moe/8ehi9t.jpeg"},
+    {"brand": "Cafe Beans", "offer": "Free Cold Coffee with meal", "pointsRequired": 80, "image": "https://files.catbox.moe/ny0dcs.jpeg"},
+    {"brand": "Pizza Hub", "offer": "Buy 1 Get 1 Free", "pointsRequired": 150, "image": "https://files.catbox.moe/qg0ucs.jpeg"}
+  ],
+
+  "inspections": [
+    {
+      "warden": "Warden 1",
+      "time": "Today, 10:30 AM",
+      "status": "Pending",
+      "note": "Basmati rice used for lunch preparation.",
+      "image": "https://files.catbox.moe/pkgkew.jpeg"
+    },
+    {
+      "warden": "Warden 2",
+      "time": "Yesterday, 4:15 PM",
+      "status": "Pending",
+      "note": "Kitchen hygiene check passed.",
+      "image": "https://files.catbox.moe/r287xp.jpeg"
+    }
+  ]
+}

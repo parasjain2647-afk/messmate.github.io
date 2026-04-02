@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>MessMate - Rate Meal</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* GLOBAL */
+
+body{
+margin:0;
+font-family:Arial;
+background:#0b0f0c;
+color:white;
+display:flex;
+height:100vh;
+overflow:hidden;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:230px;
+background:#0a0d0b;
+height:100vh;
+padding:20px;
+position:fixed;
+left:0;
+top:0;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:20px;
+font-weight:bold;
+margin-bottom:30px;
+}
+
+.logo-icon{
+width:35px;
+height:35px;
+background:#22c55e;
+border-radius:8px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+color:black;
+}
+
+.sidebar a{
+display:block;
+padding:12px;
+color:#aaa;
+text-decoration:none;
+margin-bottom:6px;
+border-radius:6px;
+}
+
+.sidebar a i{
+margin-right:10px;
+width:18px;
+}
+
+.sidebar a:hover{
+background:#13301f;
+color:#4ade80;
+}
+
+.active{
+background:#13301f;
+color:#4ade80;
+}
+
+.profile{
+position:absolute;
+bottom:20px;
+left:20px;
+right:20px;
+
+display:flex;
+align-items:center;
+gap:12px;
+
+padding:12px;
+background:#111;
+border-radius:10px;
+border:1px solid #222;
+}
+
+/* green square avatar */
+
+.profile-avatar{
+width:36px;
+height:36px;
+background:#22c55e;
+border-radius:8px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-weight:bold;
+color:#053d1f;
+}
+
+/* name section */
+
+.profile-name{
+font-weight:600;
+}
+
+.profile-role{
+font-size:13px;
+color:#9ca3af;
+}
+
+/* MAIN */
+
+.main{
+margin-left:230px;
+padding:40px;
+overflow-y:auto;
+height:100vh;
+width:100%;
+}
+
+.subtitle{
+color:#aaa;
+margin-bottom:30px;
+}
+
+/* RATING GRID */
+
+.rating-grid{
+display:flex;
+flex-direction:column;
+gap:25px;
+max-width:500px;
+}
+
+/* FOOD CARD */
+
+.food-card{
+background:#111;
+padding:30px;
+border-radius:12px;
+border:1px solid #1f2937;
+text-align:center;
+transition:0.2s;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.food-card:hover{
+border-color:#22c55e;
+transform:translateY(-3px);
+}
+
+.food-card h3{
+margin-top:0;
+}
+
+/* STAR RATING */
+
+.stars{
+display:flex;
+justify-content:center;
+gap:8px;
+margin-top:12px;
+}
+
+.star{
+font-size:22px;
+cursor:pointer;
+color:#444;
+transition:0.2s;
+}
+
+.star.active{
+color:#22c55e;
+}
+
+.star.active{
+color:#22c55e;
+}
+
+.star:hover{
+color:#22c55e;
+transform:scale(1.15);
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<div class="logo">
+<div class="logo-icon">M</div>
+MessMate
+</div>
+
+<a href="dashboard.html">
+<i class="fa-solid fa-house"></i> Dashboard
+</a>
+
+<a href="menu.html">
+<i class="fa-solid fa-utensils"></i> Menu
+</a>
+
+<a class="active" href="rate.html">
+<i class="fa-solid fa-star"></i> Rate Meal
+</a>
+
+<a href="ai-voting.html">
+<i class="fa-solid fa-robot"></i> AI Voting
+</a>
+
+<a href="rewards.html">
+<i class="fa-solid fa-gift"></i> Rewards
+</a>
+
+<a href="inspection.html">
+<i class="fa-solid fa-clipboard-check"></i> Inspection
+</a>
+
+<a href="musclepass.html">
+<i class="fa-solid fa-dumbbell"></i> MusclePass
+</a>
+
+<a href="about.html">
+<i class="fa-solid fa-circle-info"></i> About
+</a>
+
+<div class="profile">
+
+<div class="profile-avatar">
+JD
+</div>
+
+<div class="profile-info">
+<div class="profile-name">John Doe</div>
+<div class="profile-role">Student</div>
+</div>
+
+</div>
+</div>
+
+
+<!-- MAIN CONTENT -->
+
+<div class="main">
+
+<h1>Rate Today's Meals</h1>
+<p class="subtitle">Your feedback helps improve the mess menu.</p>
+
+<div class="rating-grid" id="ratingGrid"></div>
+
+</div>
+
+
+<script>
+
+/* LOAD DISHES FROM JSON */
+
+fetch("data.json")
+.then(res=>res.json())
+.then(data=>{
+
+let grid=document.getElementById("ratingGrid")
+
+Object.keys(data.ratings).forEach(dish=>{
+
+let card=document.createElement("div")
+card.className="food-card"
+
+let stars=""
+
+for(let i=1;i<=5;i++){
+stars+=`<span class="star" data-dish="${dish}" data-value="${i}" onclick="rateDish('${dish}',${i})">★</span>`
+}
+
+card.innerHTML=`
+<h3>${dish}</h3>
+<div class="stars">${stars}</div>
+`
+
+grid.appendChild(card)
+
+})
+
+})
+
+
+/* SAVE RATING */
+
+function rateDish(dish,rating){
+
+let ratings=JSON.parse(localStorage.getItem("ratings"))||{}
+ratings[dish]=rating
+localStorage.setItem("ratings",JSON.stringify(ratings))
+
+let stars=document.querySelectorAll(`[data-dish='${dish}']`)
+
+stars.forEach((star,index)=>{
+if(index<rating){
+star.classList.add("active")
+star.classList.remove("fa-regular")
+star.classList.add("fa-solid")
+}else{
+star.classList.remove("active")
+star.classList.remove("fa-solid")
+star.classList.add("fa-regular")
+}
+})
+
+}
+
+</script>
+
+</body>
+</html>
