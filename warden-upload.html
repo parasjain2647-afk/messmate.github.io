@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Warden Upload Photo</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0f1117;
+  color: white;
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: #11131a;
+  height: 100vh;
+  padding: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.logo-box {
+  width: 35px;
+  height: 35px;
+  background: #00ff88;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.menu a:hover,
+.active {
+  background: #1f2a22;
+  color: #00ff88;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 30px;
+}
+
+/* Upload Box */
+.upload-box {
+  margin-top: 30px;
+  border: 2px dashed #444;
+  border-radius: 15px;
+  padding: 40px;
+  text-align: center;
+  background: #1c1f26;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.upload-box:hover {
+  border-color: #00ff88;
+  transform: scale(1.02);
+}
+
+/* Button */
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #00ff88;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Preview */
+#preview {
+  margin-top: 20px;
+  max-width: 300px;
+  display: none;
+  border-radius: 10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <a href="index.html" class="logo" style="text-decoration:none; color:white;">
+  <div class="logo-box">M</div>
+  MessMate
+</a>
+
+  <div class="menu">
+    <a href="warden-dashboard.html">🏠 Warden Dashboard</a>
+    <a href="warden-menu.html">📅 Warden Menu</a>
+    <a href="warden-upgrade.html">📈 Warden Upgrade Menu</a>
+    <a href="warden-upload.html" class="active">📤 Warden Upload Photo</a>
+  </div>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+  <h1>📤 Warden Upload Photo</h1>
+  <p>Submit hygiene reports to the mess committee</p>
+
+  <!-- Upload -->
+  <div class="upload-box" onclick="document.getElementById('fileInput').click()">
+    <p>Drag & Drop Image</p>
+    <p>PNG, JPG (Max 10MB)</p>
+  </div>
+
+  <input type="file" id="fileInput" accept="image/*" style="display:none">
+
+  <img id="preview">
+
+  <br>
+
+  <button onclick="submitPhoto()">Submit Photo</button>
+
+</div>
+
+<script>
+const input = document.getElementById("fileInput");
+const preview = document.getElementById("preview");
+
+input.addEventListener("change", function() {
+  const file = this.files[0];
+
+  if(file){
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+      preview.src = e.target.result;
+      preview.style.display = "block";
+    }
+
+    reader.readAsDataURL(file);
+  }
+});
+
+function submitPhoto(){
+  if(input.files.length === 0){
+    alert("Please select a photo first");
+  } else {
+    alert("Photo uploaded successfully (demo)");
+  }
+}
+</script>
+
+</body>
+</html>
