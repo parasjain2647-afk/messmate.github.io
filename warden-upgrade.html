@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Warden Upgrade Menu</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0f1117;
+  color: white;
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: #11131a;
+  height: 100vh;
+  padding: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.logo-box {
+  width: 35px;
+  height: 35px;
+  background: #00ff88;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.menu a:hover,
+.active {
+  background: #1f2a22;
+  color: #00ff88;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 30px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Button */
+.btn {
+  background: #00ff88;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Cards */
+.card {
+  background: #1c1f26;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.card:hover {
+  border: 1px solid #00ff88;
+  transform: translateY(-5px);
+}
+
+/* Badge */
+.badge {
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.active-badge {
+  background: #00ff88;
+  color: black;
+}
+
+.draft-badge {
+  background: #444;
+}
+
+/* Actions */
+.actions {
+  margin-top: 10px;
+}
+
+.actions button {
+  margin-right: 10px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.actions button:hover {
+  background: #00ff88;
+  color: black;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <a href="index.html" class="logo" style="text-decoration:none; color:white;">
+  <div class="logo-box">M</div>
+  MessMate
+</a>
+
+  <div class="menu">
+    <a href="warden-dashboard.html">🏠 Warden Dashboard</a>
+    <a href="warden-menu.html">📅 Warden Menu</a>
+    <a href="warden-upgrade.html" class="active">📈 Warden Upgrade Menu</a>
+    <a href="warden-upload.html">📤 Warden Upload Photo</a>
+  </div>
+</div>
+
+<!-- Main -->
+<div class="main">
+
+  <div class="header">
+    <div>
+      <h1>Warden Upgrade Menu</h1>
+      <p>Propose institutional menu upgrades</p>
+    </div>
+
+    <div class="btn">+ New Upgrade</div>
+  </div>
+
+  <!-- Card 1 -->
+  <div class="card">
+    <h3>
+      📈 Special Dessert Night
+      <span class="badge active-badge">Active</span>
+    </h3>
+
+    <p>Add Gulab Jamun & Ice Cream</p>
+    <p><small>Applies to: Dinner</small></p>
+
+    <div class="actions">
+      <button>View</button>
+      <button>Edit</button>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <h3>
+      📈 Premium Rice Upgrade
+      <span class="badge active-badge">Active</span>
+    </h3>
+
+    <p>Regular Rice → Basmati Rice</p>
+    <p><small>Applies to: Lunch</small></p>
+
+    <div class="actions">
+      <button>View</button>
+      <button>Edit</button>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card">
+    <h3>
+      📈 Festival Feast Plan
+      <span class="badge draft-badge">Draft</span>
+    </h3>
+
+    <p>Paneer, Puri, Kheer Special Menu</p>
+    <p><small>Applies to: Full Day</small></p>
+
+    <div class="actions">
+      <button>View</button>
+      <button>Edit</button>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
